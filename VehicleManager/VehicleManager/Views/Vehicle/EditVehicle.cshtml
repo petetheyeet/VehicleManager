@@ -1,0 +1,78 @@
+﻿@model VehicleManager.Models.Vehicle
+
+@{
+    ViewData["Title"] = "EditVehicle";
+}
+
+<h1>EditVehicle</h1>
+
+<h4>Vehicle</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form action="/Vehicle/UpdateVehicle" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="display: none;">
+                <label asp-for="Vehicle_ID" class="control-label"></label>
+                <input asp-for="Vehicle_ID" class="form-control" value="@ViewBag.Vehicle.Vehicle_ID" />
+                <span asp-validation-for="Vehicle_ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner_FName" class="control-label">Owner First Name</label>
+                <input asp-for="Owner_FName" class="form-control" value="@ViewBag.Vehicle.Owner_FName" />
+                <span asp-validation-for="Owner_FName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner_LName" class="control-label">Owner Last Name</label>
+                <input asp-for="Owner_LName" class="form-control" value="@ViewBag.Vehicle.Owner_LName" />
+                <span asp-validation-for="Owner_LName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner_Phone" class="control-label">Owner Phone</label>
+                <input asp-for="Owner_Phone" class="form-control" value="@ViewBag.Vehicle.Owner_Phone" />
+                <span asp-validation-for="Owner_Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner_Unit" class="control-label">Unit Number</label>
+                <input asp-for="Owner_Unit" class="form-control" value="@ViewBag.Vehicle.Owner_Unit" />
+                <span asp-validation-for="Owner_Unit" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner_Apartment" class="control-label">Apartment Number</label>
+                <input asp-for="Owner_Apartment" class="form-control" value="@ViewBag.Vehicle.Owner_Apartment" />
+                <span asp-validation-for="Owner_Apartment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle_Make" class="control-label">Vehicle Make</label>
+                <input asp-for="Vehicle_Make" class="form-control" value="@ViewBag.Vehicle.Vehicle_Make" />
+                <span asp-validation-for="Vehicle_Make" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle_Model" class="control-label">Vehicle Model</label>
+                <input asp-for="Vehicle_Model" class="form-control" value="@ViewBag.Vehicle.Vehicle_Model" />
+                <span asp-validation-for="Vehicle_Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle_Color" class="control-label">Vehicle Color</label>
+                <input asp-for="Vehicle_Color" class="form-control" value="@ViewBag.Vehicle.Vehicle_Color" />
+                <span asp-validation-for="Vehicle_Color" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vehicle_Registration" class="control-label">Vehicle Registration</label>
+                <input asp-for="Vehicle_Registration" class="form-control" value="@ViewBag.Vehicle.Vehicle_Registration" />
+                <span asp-validation-for="Vehicle_Registration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

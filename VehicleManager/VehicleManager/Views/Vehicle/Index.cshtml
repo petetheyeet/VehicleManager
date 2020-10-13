@@ -1,0 +1,93 @@
+﻿@model IEnumerable<VehicleManager.Models.Vehicle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Vehicles</h1>
+<form action="/Vehicle/Index" method="post">
+    <p>
+        Search By Registration: <input type="text" name="SearchReg" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<p>
+    <a asp-action="AddVehicle">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Unit
+            </th>
+            <th>
+                Apartment
+            </th>
+            <th>
+                Make
+            </th>
+            <th>
+                Model
+            </th>
+            <th>
+                Color
+            </th>
+            <th>
+                Registration
+            </th>
+            <th>
+                Created
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner_FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner_LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner_Unit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Owner_Apartment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle_Make)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle_Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle_Color)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicle_Registration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Registration_Date)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditVehicle", new { id = item.Vehicle_ID }) |
+                @Html.ActionLink("Delete", "DeleteVehicle", new { id = item.Vehicle_ID })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
